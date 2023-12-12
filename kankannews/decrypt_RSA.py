@@ -60,7 +60,7 @@ if __name__ == '__main__':
     try:
         r = requests.get(url, headers=headers).json()
         encryptUrl = r['result']['channel_info']['live_address']
-        decodeUrl = os.popen(r"node C:\Users\zz\Desktop\jsCodes\1.js {}".format(encryptUrl))
+        decodeUrl = os.popen(r"node decrypt_RSA.js {}".format(encryptUrl))
         print(decodeUrl.read().strip())
     except Exception as e:
         print("请求异常.")

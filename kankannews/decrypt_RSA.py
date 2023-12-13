@@ -33,6 +33,7 @@
 https://volc-stream.kksmg.com/live/dfws/index.m3u8?volcSecret=590a28309783c0be49054c3875f6c232&volcTime=1702547711
 https://tencent-stream.kksmg.com/live/dycj.m3u8?txSecret=17c6de392a8d6db4cdd85eecd2054c82&txTime=657ad100
 https://volc-stream.kksmg.com/live/xwzh/index.m3u8?volcSecret=1455ec856f6852ff810b5b7878010527&volcTime=1702547712
+
 """
 
 import random
@@ -87,10 +88,16 @@ def replaceM3u8(srsPath, *args):
     with open(srsPath, 'r') as fp:
         content = fp.read()
     s1 = re.sub(r'url https://.*?/live/dfws/index.m3u8.*?;', dfws, content)
-    s2 = re.sub(r'url https://.*?/live/dycj.m3u8.*?;', dycj, s1)
-    s3 = re.sub(r'url https://.*?/live/xwzh/index.m3u8.*?;', xwzh, s2)
+    s2 = re.sub(r'url https://.*?/live/xwzh/index.m3u8.*?;', xwzh, s1)
     with open(srsPath, 'w') as fp2:
-        fp2.write(s3)
+        fp2.write(s2)
+
+
+def handlerCJ():
+    url = newM3u8[1]
+    filePath = os.path.join(BASE_DIR, 'shcj.txt')
+    with open(filePath, 'w', encoding='utf-8') as fp:
+        fp.write(url)
 
 
 if __name__ == '__main__':

@@ -22,7 +22,7 @@
         12:00	13:00
         17:00	18:30
         18:30	23:00
-        第一财经(周一至周五)
+        第一财经(周一至周五) 需要单独处理
         07:00	16:00
         21:00   22:00
         东方卫视(全天)
@@ -135,7 +135,6 @@ if __name__ == '__main__':
             decodeUrl = "url " + decodeUrl + ";"
             logger.info(f"{k} m3u8地址: {decodeUrl}")
             newM3u8.append(decodeUrl)
-            exit()
         except Exception as e:
             logger.error(f"{k}m3u8地址: 请求异常.")
     replaceM3u8(srsPath, *newM3u8)

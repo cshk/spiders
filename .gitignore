@@ -10,6 +10,7 @@ __pycache__/*
 *.ipr
 *.iws
 *.log
+*.iso
 *.encodings
 **/*.out
 **/*.log
